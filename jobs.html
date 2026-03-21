@@ -1,0 +1,572 @@
+
+# HTML da página de Vagas - jobs.html
+jobs_html = '''<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vagas de Emprego em Angola - SoJob</title>
+  <meta name="description" content="Encontre mais de 5.000 vagas de emprego em Angola. Filtre por localização, área, salário e tipo de contrato. As melhores oportunidades em Luanda, Benguela, Huambo.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/jobs.css">
+</head>
+<body>
+  <!-- Navegação -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="navbar-brand">
+        <i class="fas fa-briefcase"></i>
+        So<span>Job</span>
+      </a>
+      
+      <div class="navbar-nav">
+        <a href="index.html" class="nav-link">
+          <i class="fas fa-home"></i>
+          <span>Início</span>
+        </a>
+        <a href="jobs.html" class="nav-link active">
+          <i class="fas fa-search"></i>
+          <span>Vagas</span>
+        </a>
+        <a href="feed.html" class="nav-link">
+          <i class="fas fa-video"></i>
+          <span>Feed</span>
+        </a>
+        <a href="empresas.html" class="nav-link">
+          <i class="fas fa-building"></i>
+          <span>Empresas</span>
+        </a>
+      </div>
+      
+      <div class="navbar-actions">
+        <a href="login.html" class="btn btn-ghost">Entrar</a>
+        <a href="registro.html" class="btn btn-primary">Criar Conta</a>
+      </div>
+      
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Search Section -->
+  <section class="jobs-search-section">
+    <div class="jobs-search-container">
+      <div class="jobs-search-box">
+        <div class="search-input-group">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Cargo, empresa ou palavra-chave" id="searchInput">
+        </div>
+        <div class="search-input-group">
+          <i class="fas fa-map-marker-alt"></i>
+          <select id="locationSelect">
+            <option value="">Todas as localizações</option>
+            <option value="luanda">Luanda</option>
+            <option value="benguela">Benguela</option>
+            <option value="huambo">Huambo</option>
+            <option value="lobito">Lobito</option>
+            <option value="cabinda">Cabinda</option>
+          </select>
+        </div>
+        <div class="search-input-group">
+          <i class="fas fa-briefcase"></i>
+          <select id="categorySelect">
+            <option value="">Todas as categorias</option>
+            <option value="ti">Tecnologia</option>
+            <option value="finance">Finanças</option>
+            <option value="engineering">Engenharia</option>
+            <option value="health">Saúde</option>
+            <option value="education">Educação</option>
+          </select>
+        </div>
+        <button class="search-btn" id="searchBtn">
+          <i class="fas fa-search"></i>
+          Buscar
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filters Bar -->
+  <div class="filters-bar">
+    <div class="filters-container">
+      <div class="filters-group">
+        <button class="filter-chip active" data-filter="all">
+          <i class="fas fa-th-large"></i>
+          Todas
+        </button>
+        <button class="filter-chip" data-filter="ti">
+          <i class="fas fa-laptop-code"></i>
+          Tecnologia
+        </button>
+        <button class="filter-chip" data-filter="finance">
+          <i class="fas fa-chart-line"></i>
+          Finanças
+        </button>
+        <button class="filter-chip" data-filter="engineering">
+          <i class="fas fa-hard-hat"></i>
+          Engenharia
+        </button>
+        <button class="filter-chip" data-filter="health">
+          <i class="fas fa-heartbeat"></i>
+          Saúde
+        </button>
+        <button class="filter-chip" data-filter="remote">
+          <i class="fas fa-home"></i>
+          Remoto
+        </button>
+      </div>
+      <div class="results-count">
+        <strong>1,247</strong> vagas encontradas
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="jobs-page">
+    <div class="jobs-layout">
+      <!-- Sidebar -->
+      <aside class="jobs-sidebar">
+        <div class="sidebar-card">
+          <h3 class="sidebar-title">
+            <i class="fas fa-filter"></i>
+            Filtros
+          </h3>
+          
+          <div class="filter-list">
+            <label class="filter-item">
+              <input type="checkbox" checked>
+              <span class="filter-label">Tempo Integral</span>
+              <span class="filter-count">892</span>
+            </label>
+            <label class="filter-item">
+              <input type="checkbox">
+              <span class="filter-label">Meio Período</span>
+              <span class="filter-count">234</span>
+            </label>
+            <label class="filter-item">
+              <input type="checkbox">
+              <span class="filter-label">Contrato</span>
+              <span class="filter-count">156</span>
+            </label>
+            <label class="filter-item">
+              <input type="checkbox">
+              <span class="filter-label">Estágio</span>
+              <span class="filter-count">89</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3 class="sidebar-title">
+            <i class="fas fa-money-bill-wave"></i>
+            Faixa Salarial
+          </h3>
+          <div class="salary-range">
+            <input type="range" class="range-slider" min="0" max="5000000" value="2500000" id="salaryRange">
+            <div class="salary-values">
+              <span>AOA 0</span>
+              <span id="salaryValue">AOA 2.5M</span>
+              <span>AOA 5M+</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3 class="sidebar-title">
+            <i class="fas fa-layer-group"></i>
+            Nível de Experiência
+          </h3>
+          <div class="filter-list">
+            <label class="filter-item">
+              <input type="checkbox" checked>
+              <span class="filter-label">Júnior (0-2 anos)</span>
+              <span class="filter-count">456</span>
+            </label>
+            <label class="filter-item">
+              <input type="checkbox" checked>
+              <span class="filter-label">Pleno (2-5 anos)</span>
+              <span class="filter-count">523</span>
+            </label>
+            <label class="filter-item">
+              <input type="checkbox">
+              <span class="filter-label">Sénior (5+ anos)</span>
+              <span class="filter-count">268</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3 class="sidebar-title">
+            <i class="fas fa-building"></i>
+            Tipo de Empresa
+          </h3>
+          <div class="filter-list">
+            <label class="filter-item">
+              <input type="checkbox" checked>
+              <span class="filter-label">Empresa Privada</span>
+              <span class="filter-count">756</span>
+            </label>
+            <label class="filter-item">
+              <input type="checkbox">
+              <span class="filter-label">Startup</span>
+              <span class="filter-count">234</span>
+            </label>
+            <label class="filter-item">
+              <input type="checkbox">
+              <span class="filter-label">Multinacional</span>
+              <span class="filter-count">156</span>
+            </label>
+            <label class="filter-item">
+              <input type="checkbox">
+              <span class="filter-label">Governo</span>
+              <span class="filter-count">89</span>
+            </label>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Jobs List -->
+      <div class="jobs-main">
+        
+        <!-- Job Card 1 -->
+        <article class="job-card-horizontal" data-category="ti">
+          <div class="job-logo-large" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">TN</div>
+          <div class="job-content">
+            <div class="job-header-row">
+              <div>
+                <h3 class="job-title-large">Desenvolvedor Full Stack Sénior</h3>
+                <p class="job-company-large">TechNova Angola • Luanda, Angola</p>
+              </div>
+              <span class="badge badge-red">NOVA</span>
+            </div>
+            <div class="job-badges">
+              <span class="badge badge-blue">Full-time</span>
+              <span class="badge badge-yellow">Remoto</span>
+              <span class="badge badge-green">Urgente</span>
+            </div>
+            <div class="job-details-row">
+              <span class="job-detail"><i class="fas fa-money-bill-wave"></i> AOA 850.000 - 1.200.000</span>
+              <span class="job-detail"><i class="fas fa-briefcase"></i> 5+ anos experiência</span>
+              <span class="job-detail"><i class="fas fa-graduation-cap"></i> Licenciatura</span>
+              <span class="job-detail"><i class="fas fa-clock"></i> Há 2 dias</span>
+            </div>
+            <p class="job-description">
+              Estamos procurando um desenvolvedor Full Stack experiente para liderar nossa equipe de desenvolvimento. Você trabalhará com React, Node.js e MongoDB em projetos inovadores para clientes angolanos e internacionais...
+            </p>
+            <div class="job-footer-row">
+              <span class="job-salary-large">AOA 850.000 - 1.200.000 / mês</span>
+              <div class="job-actions">
+                <button class="btn-job-action btn-save-job">
+                  <i class="far fa-bookmark"></i>
+                  Salvar
+                </button>
+                <button class="btn-job-action btn-apply-job" onclick="applyToJob('Desenvolvedor Full Stack', 'TechNova')">
+                  <i class="fas fa-paper-plane"></i>
+                  Candidatar-se
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Job Card 2 -->
+        <article class="job-card-horizontal" data-category="finance">
+          <div class="job-logo-large" style="background: #003893; color: white;">BF</div>
+          <div class="job-content">
+            <div class="job-header-row">
+              <div>
+                <h3 class="job-title-large">Analista de Crédito Pleno</h3>
+                <p class="job-company-large">Banco Fomento Angola • Luanda, Angola</p>
+              </div>
+              <span class="badge badge-blue">DESTAQUE</span>
+            </div>
+            <div class="job-badges">
+              <span class="badge badge-blue">Full-time</span>
+              <span class="badge badge-yellow">Presencial</span>
+            </div>
+            <div class="job-details-row">
+              <span class="job-detail"><i class="fas fa-money-bill-wave"></i> AOA 650.000 - 950.000</span>
+              <span class="job-detail"><i class="fas fa-briefcase"></i> 2-5 anos experiência</span>
+              <span class="job-detail"><i class="fas fa-graduation-cap"></i> Finanças/Economia</span>
+              <span class="job-detail"><i class="fas fa-clock"></i> Há 1 dia</span>
+            </div>
+            <p class="job-description">
+              O BFA está expandindo sua equipe de análise de crédito. Buscamos profissionais com experiência em análise financeira, avaliação de risco e relacionamento com clientes corporativos...
+            </p>
+            <div class="job-footer-row">
+              <span class="job-salary-large">AOA 650.000 - 950.000 / mês</span>
+              <div class="job-actions">
+                <button class="btn-job-action btn-save-job">
+                  <i class="far fa-bookmark"></i>
+                  Salvar
+                </button>
+                <button class="btn-job-action btn-apply-job" onclick="applyToJob('Analista de Crédito', 'BFA')">
+                  <i class="fas fa-paper-plane"></i>
+                  Candidatar-se
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Job Card 3 -->
+        <article class="job-card-horizontal" data-category="engineering">
+          <div class="job-logo-large" style="background: #F9D616; color: #003893;">SG</div>
+          <div class="job-content">
+            <div class="job-header-row">
+              <div>
+                <h3 class="job-title-large">Engenheiro de Petróleo Sénior</h3>
+                <p class="job-company-large">Sonangol • Cabinda, Angola</p>
+              </div>
+              <span class="badge badge-yellow">TOP</span>
+            </div>
+            <div class="job-badges">
+              <span class="badge badge-blue">Full-time</span>
+              <span class="badge badge-yellow">Campo</span>
+            </div>
+            <div class="job-details-row">
+              <span class="job-detail"><i class="fas fa-money-bill-wave"></i> AOA 2.500.000 - 4.000.000</span>
+              <span class="job-detail"><i class="fas fa-briefcase"></i> 8+ anos experiência</span>
+              <span class="job-detail"><i class="fas fa-graduation-cap"></i> Engenharia</span>
+              <span class="job-detail"><i class="fas fa-clock"></i> Há 3 dias</span>
+            </div>
+            <p class="job-description">
+              Oportunidade única para engenheiros experientes na maior empresa de Angola. Gestão de projetos de exploração, otimização de produção e liderança técnica de equipes multidisciplinares...
+            </p>
+            <div class="job-footer-row">
+              <span class="job-salary-large">AOA 2.500.000 - 4.000.000 / mês</span>
+              <div class="job-actions">
+                <button class="btn-job-action btn-save-job">
+                  <i class="far fa-bookmark"></i>
+                  Salvar
+                </button>
+                <button class="btn-job-action btn-apply-job" onclick="applyToJob('Engenheiro de Petróleo', 'Sonangol')">
+                  <i class="fas fa-paper-plane"></i>
+                  Candidatar-se
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Job Card 4 -->
+        <article class="job-card-horizontal" data-category="health">
+          <div class="job-logo-large" style="background: #10b981; color: white;">UC</div>
+          <div class="job-content">
+            <div class="job-header-row">
+              <div>
+                <h3 class="job-title-large">Médico Cardiologista</h3>
+                <p class="job-company-large">Hospital Uniclinic • Luanda, Angola</p>
+              </div>
+            </div>
+            <div class="job-badges">
+              <span class="badge badge-blue">Full-time</span>
+              <span class="badge badge-yellow">Presencial</span>
+            </div>
+            <div class="job-details-row">
+              <span class="job-detail"><i class="fas fa-money-bill-wave"></i> AOA 1.800.000 - 2.800.000</span>
+              <span class="job-detail"><i class="fas fa-briefcase"></i> Especialização</span>
+              <span class="job-detail"><i class="fas fa-graduation-cap"></i> Medicina</span>
+              <span class="job-detail"><i class="fas fa-clock"></i> Há 5 dias</span>
+            </div>
+            <p class="job-description">
+              Hospital de referência em Luanda busca cardiologista para integrar equipe de excelência. Infraestrutura moderna, equipamentos de última geração e paciente de perfil socioeconômico alto...
+            </p>
+            <div class="job-footer-row">
+              <span class="job-salary-large">AOA 1.800.000 - 2.800.000 / mês</span>
+              <div class="job-actions">
+                <button class="btn-job-action btn-save-job">
+                  <i class="far fa-bookmark"></i>
+                  Salvar
+                </button>
+                <button class="btn-job-action btn-apply-job" onclick="applyToJob('Cardiologista', 'Uniclinic')">
+                  <i class="fas fa-paper-plane"></i>
+                  Candidatar-se
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Job Card 5 -->
+        <article class="job-card-horizontal" data-category="ti">
+          <div class="job-logo-large" style="background: #f59e0b; color: white;">MZ</div>
+          <div class="job-content">
+            <div class="job-header-row">
+              <div>
+                <h3 class="job-title-large">Gerente de Marketing Digital</h3>
+                <p class="job-company-large">Mamboo • Luanda, Angola</p>
+              </div>
+              <span class="badge badge-green">URGENTE</span>
+            </div>
+            <div class="job-badges">
+              <span class="badge badge-blue">Full-time</span>
+              <span class="badge badge-yellow">Híbrido</span>
+            </div>
+            <div class="job-details-row">
+              <span class="job-detail"><i class="fas fa-money-bill-wave"></i> AOA 750.000 - 1.100.000</span>
+              <span class="job-detail"><i class="fas fa-briefcase"></i> 3+ anos experiência</span>
+              <span class="job-detail"><i class="fas fa-graduation-cap"></i> Marketing</span>
+              <span class="job-detail"><i class="fas fa-clock"></i> Há 1 dia</span>
+            </div>
+            <p class="job-description">
+              Startup angolana em crescimento acelerado busca líder de marketing. Gestão de equipe, estratégia digital, campanhas em redes sociais e análise de métricas de crescimento...
+            </p>
+            <div class="job-footer-row">
+              <span class="job-salary-large">AOA 750.000 - 1.100.000 / mês</span>
+              <div class="job-actions">
+                <button class="btn-job-action btn-save-job">
+                  <i class="far fa-bookmark"></i>
+                  Salvar
+                </button>
+                <button class="btn-job-action btn-apply-job" onclick="applyToJob('Marketing Digital', 'Mamboo')">
+                  <i class="fas fa-paper-plane"></i>
+                  Candidatar-se
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Job Card 6 -->
+        <article class="job-card-horizontal" data-category="education">
+          <div class="job-logo-large" style="background: #8b5cf6; color: white;">IS</div>
+          <div class="job-content">
+            <div class="job-header-row">
+              <div>
+                <h3 class="job-title-large">Professor de Matemática - Doutorado</h3>
+                <p class="job-company-large">Instituto Superior ISPTEC • Luanda, Angola</p>
+              </div>
+            </div>
+            <div class="job-badges">
+              <span class="badge badge-blue">Full-time</span>
+              <span class="badge badge-yellow">Presencial</span>
+            </div>
+            <div class="job-details-row">
+              <span class="job-detail"><i class="fas fa-money-bill-wave"></i> AOA 900.000 - 1.500.000</span>
+              <span class="job-detail"><i class="fas fa-briefcase"></i> Doutorado</span>
+              <span class="job-detail"><i class="fas fa-graduation-cap"></i> Matemática</span>
+              <span class="job-detail"><i class="fas fa-clock"></i> Há 1 semana</span>
+            </div>
+            <p class="job-description">
+              O ISPTEC, referência em educação superior tecnológica em Angola, busca professor com doutorado para departamento de Ciências Exatas. Pesquisa e ensino de graduação...
+            </p>
+            <div class="job-footer-row">
+              <span class="job-salary-large">AOA 900.000 - 1.500.000 / mês</span>
+              <div class="job-actions">
+                <button class="btn-job-action btn-save-job">
+                  <i class="far fa-bookmark"></i>
+                  Salvar
+                </button>
+                <button class="btn-job-action btn-apply-job" onclick="applyToJob('Professor Matemática', 'ISPTEC')">
+                  <i class="fas fa-paper-plane"></i>
+                  Candidatar-se
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Pagination -->
+        <div class="pagination">
+          <button class="page-btn" disabled>
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="page-btn active">1</button>
+          <button class="page-btn">2</button>
+          <button class="page-btn">3</button>
+          <button class="page-btn">...</button>
+          <button class="page-btn">42</button>
+          <button class="page-btn">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <i class="fas fa-briefcase"></i>
+            So<span>Job</span>
+          </div>
+          <p class="footer-description">
+            A plataforma líder de empregos em Angola. Conectamos talentos às melhores oportunidades do mercado angolano.
+          </p>
+          <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="footer-title">Para Candidatos</h4>
+          <ul class="footer-links">
+            <li><a href="jobs.html">Buscar Vagas</a></li>
+            <li><a href="feed.html">Feed de Vídeos</a></li>
+            <li><a href="#">Criar Perfil</a></li>
+            <li><a href="#">Alertas de Vagas</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="footer-title">Para Empresas</h4>
+          <ul class="footer-links">
+            <li><a href="#">Publicar Vaga</a></li>
+            <li><a href="#">Buscar Candidatos</a></li>
+            <li><a href="#">Soluções de RH</a></li>
+            <li><a href="#">Preços</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="footer-title">Sobre</h4>
+          <ul class="footer-links">
+            <li><a href="#">Quem Somos</a></li>
+            <li><a href="#">Nossa História</a></li>
+            <li><a href="#">Parceiros</a></li>
+            <li><a href="#">Contato</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2026 SoJob Angola. Todos os direitos reservados.</p>
+        <div class="footer-legal">
+          <a href="#">Política de Privacidade</a>
+          <a href="#">Termos de Uso</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+  <script src="js/jobs.js"></script>
+</body>
+</html>'''
+
+with open('/mnt/kimi/output/sojob/jobs.html', 'w', encoding='utf-8') as f:
+    f.write(jobs_html)
+
+print("✅ jobs.html criado com sucesso!")

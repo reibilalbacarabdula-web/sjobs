@@ -1,0 +1,1 @@
+const firebaseConfig={apiKey:"SUA_API_KEY",authDomain:"seu-app.firebaseapp.com",projectId:"seu-project",storageBucket:"seu-app.appspot.com",messagingSenderId:"123456789",appId:"1:123456789:web:abc"};console.log('Firebase ready');

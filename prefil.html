@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Perfil - SoJob Angola</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  
+  <style>
+    .profile-page {
+      padding-top: 90px;
+      min-height: 100vh;
+      background: var(--gray-50);
+    }
+    
+    .profile-header {
+      background: linear-gradient(135deg, var(--angola-blue) 0%, var(--angola-blue-dark) 100%);
+      padding: 3rem 0;
+      position: relative;
+    }
+    
+    .profile-header-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: flex-end;
+      gap: 2rem;
+    }
+    
+    .profile-avatar-large {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 5px solid white;
+      background: linear-gradient(135deg, var(--angola-red), var(--angola-yellow));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3rem;
+      font-weight: 700;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    
+    .profile-info {
+      color: white;
+      padding-bottom: 1rem;
+    }
+    
+    .profile-name {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    
+    .profile-title {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: 1rem;
+    }
+    
+    .profile-location {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0.8;
+    }
+    
+    .profile-actions {
+      margin-left: auto;
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .profile-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 2rem;
+    }
+    
+    .profile-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .profile-card {
+      background: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow-md);
+    }
+    
+    .profile-card-title {
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .profile-card-title i {
+      color: var(--angola-red);
+    }
+    
+    .profile-stat-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    
+    .profile-stat-row:last-child {
+      border-bottom: none;
+    }
+    
+    .profile-stat-label {
+      color: var(--gray-600);
+    }
+    
+    .profile-stat-value {
+      font-weight: 700;
+      color: var(--angola-blue);
+    }
+    
+    .skill-tag {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: var(--gray-100);
+      border-radius: 20px;
+      font-size: 0.9rem;
+      color: var(--gray-700);
+      margin: 0.25rem;
+    }
+    
+    .profile-main {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .profile-section {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: var(--shadow-md);
+    }
+    
+    .profile-section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .profile-section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--gray-900);
+    }
+    
+    .btn-edit {
+      padding: 0.5rem 1rem;
+      background: var(--gray-100);
+      border: none;
+      border-radius: 8px;
+      color: var(--gray-700);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-edit:hover {
+      background: var(--angola-blue);
+      color: white;
+    }
+    
+    .experience-item {
+      display: flex;
+      gap: 1rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    
+    .experience-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    
+    .experience-logo {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      background: var(--gray-100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--angola-blue);
+      flex-shrink: 0;
+    }
+    
+    .experience-content h4 {
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 0.25rem;
+    }
+    
+    .experience-content .company {
+      color: var(--angola-blue);
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    
+    .experience-content .period {
+      color: var(--gray-500);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .experience-content .description {
+      color: var(--gray-600);
+      line-height: 1.5;
+    }
+    
+    @media (max-width: 992px) {
+      .profile-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .profile-header-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      
+      .profile-actions {
+        margin-left: 0;
+        margin-top: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navegação -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="navbar-brand">
+        <i class="fas fa-briefcase"></i>
+        So<span>Job</span>
+      </a>
+      
+      <div class="navbar-nav">
+        <a href="index.html" class="nav-link">Início</a>
+        <a href="jobs.html" class="nav-link">Vagas</a>
+        <a href="feed.html" class="nav-link">Feed</a>
+        <a href="empresas.html" class="nav-link">Empresas</a>
+      </div>
+      
+      <div class="navbar-actions">
+        <a href="perfil.html" class="nav-link active" style="display: flex; align-items: center; gap: 0.5rem;">
+          <div style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, var(--angola-red), var(--angola-yellow)); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.9rem;">JM</div>
+          <span>João Manuel</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="profile-page">
+    <div class="profile-header">
+      <div class="profile-header-content">
+        <div class="profile-avatar-large">JM</div>
+        <div class="profile-info">
+          <h1 class="profile-name">João Manuel</h1>
+          <p class="profile-title">Desenvolvedor Full Stack | React & Node.js</p>
+          <p class="profile-location">
+            <i class="fas fa-map-marker-alt"></i>
+            Luanda, Angola • Disponível para trabalho remoto
+          </p>
+        </div>
+        <div class="profile-actions">
+          <button class="btn btn-yellow">
+            <i class="fas fa-download"></i>
+            Download CV
+          </button>
+          <button class="btn btn-ghost" style="background: rgba(255,255,255,0.2); color: white;">
+            <i class="fas fa-share-alt"></i>
+            Partilhar
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="profile-container">
+      <aside class="profile-sidebar">
+        <div class="profile-card">
+          <h3 class="profile-card-title">
+            <i class="fas fa-chart-bar"></i>
+            Estatísticas
+          </h3>
+          <div class="profile-stat-row">
+            <span class="profile-stat-label">Visualizações do perfil</span>
+            <span class="profile-stat-value">1,247</span>
+          </div>
+          <div class="profile-stat-row">
+            <span class="profile-stat-label">Candidaturas enviadas</span>
+            <span class="profile-stat-value">12</span>
+          </div>
+          <div class="profile-stat-row">
+            <span class="profile-stat-label">Vagas salvas</span>
+            <span class="profile-stat-value">8</span>
+          </div>
+          <div class="profile-stat-row">
+            <span class="profile-stat-label">Entrevistas</span>
+            <span class="profile-stat-value">3</span>
+          </div>
+        </div>
+        
+        <div class="profile-card">
+          <h3 class="profile-card-title">
+            <i class="fas fa-lightbulb"></i>
+            Habilidades
+          </h3>
+          <div style="margin: -0.25rem;">
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">Docker</span>
+          </div>
+        </div>
+        
+        <div class="profile-card">
+          <h3 class="profile-card-title">
+            <i class="fas fa-graduation-cap"></i>
+            Formação
+          </h3>
+          <div class="experience-item" style="padding: 0.75rem 0;">
+            <div class="experience-content">
+              <h4 style="font-size: 1rem;">Licenciatura em Engenharia Informática</h4>
+              <p class="company">Universidade Agostinho Neto</p>
+              <p class="period">2018 - 2022</p>
+            </div>
+          </div>
+        </div>
+      </aside>
+      
+      <div class="profile-main">
+        <div class="profile-section">
+          <div class="profile-section-header">
+            <h2 class="profile-section-title">Sobre mim</h2>
+            <button class="btn-edit">
+              <i class="fas fa-pen"></i>
+              Editar
+            </button>
+          </div>
+          <p style="color: var(--gray-600); line-height: 1.7;">
+            Desenvolvedor Full Stack apaixonado por criar soluções tecnológicas inovadoras. Com 3 anos de experiência em desenvolvimento web, especializei-me em React, Node.js e arquiteturas em nuvem. Busco oportunidades desafiadoras onde possa contribuir com minhas habilidades técnicas e crescer profissionalmente.
+          </p>
+        </div>
+        
+        <div class="profile-section">
+          <div class="profile-section-header">
+            <h2 class="profile-section-title">Experiência Profissional</h2>
+            <button class="btn-edit">
+              <i class="fas fa-plus"></i>
+              Adicionar
+            </button>
+          </div>
+          
+          <div class="experience-item">
+            <div class="experience-logo">TN</div>
+            <div class="experience-content">
+              <h4>Desenvolvedor Full Stack Júnior</h4>
+              <p class="company">TechNova Angola</p>
+              <p class="period">Jan 2023 - Presente • 1 ano 3 meses</p>
+              <p class="description">
+                Desenvolvimento de aplicações web usando React e Node.js. Implementação de APIs RESTful e integração com serviços AWS. Colaboração em equipe ágil.
+              </p>
+            </div>
+          </div>
+          
+          <div class="experience-item">
+            <div class="experience-logo" style="color: #10b981;">FS</div>
+            <div class="experience-content">
+              <h4>Estagiário em Desenvolvimento Web</h4>
+              <p class="company">Freelance Solutions</p>
+              <p class="period">Jun 2022 - Dez 2022 • 7 meses</p>
+              <p class="description">
+                Desenvolvimento de sites e aplicações web para clientes diversos. Manutenção de código e implementação de novas funcionalidades.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="profile-section">
+          <div class="profile-section-header">
+            <h2 class="profile-section-title">Minhas Candidaturas</h2>
+            <a href="#" style="color: var(--angola-blue); font-weight: 600;">Ver todas</a>
+          </div>
+          
+          <div class="experience-item">
+            <div class="experience-logo" style="background: #003893; color: white;">BF</div>
+            <div class="experience-content">
+              <h4>Desenvolvedor Frontend</h4>
+              <p class="company">Banco Fomento Angola</p>
+              <p class="period">Candidatura enviada há 2 dias</p>
+              <span class="badge badge-yellow" style="display: inline-block; margin-top: 0.5rem;">Em análise</span>
+            </div>
+          </div>
+          
+          <div class="experience-item">
+            <div class="experience-logo" style="background: #f59e0b; color: white;">MZ</div>
+            <div class="experience-content">
+              <h4>Desenvolvedor Web</h4>
+              <p class="company">Mamboo</p>
+              <p class="period">Candidatura enviada há 1 semana</p>
+              <span class="badge badge-green" style="display: inline-block; margin-top: 0.5rem;">Entrevista agendada</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script src="js/main.js"></script>
+</body>
+</html>'''
+
